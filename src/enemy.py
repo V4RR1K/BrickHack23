@@ -7,11 +7,7 @@ class enemy:
     """
     Enemy class models the enemy attributes
     """
-    def __init__(self,
-                 icon,
-                 current_x,
-                 current_y,
-                 movement_mod):
+    def __init__(self, icon, current_x, current_y, movement_mod):
         self.icon = icon
         self.current_x = current_x
         self.current_y = current_y
@@ -22,7 +18,10 @@ class enemy:
 
     def enemy_place(self, screen, dt):
         self.move_to_center(dt)
-        screen.blit(self.icon, (self.current_x, self.current_y))
+        # Only place if outside inner circle
+        if (self.current_x < 350 or self.current_x > 450
+                and self.current_y < 350 or self.current_y > 450):
+            screen.blit(self.icon, (self.current_x, self.current_y))
 
     def move_to_center(self, dt):
         """
