@@ -12,7 +12,6 @@ def init(width, height):
 
     # TODO: Game Specifics
     pygame.display.set_caption("Game Name")
-    # pygame.display.set_caption("Space Invaders")
     # logo_icon = pygame.image.load('Assets/GameIcon.png')
     # pygame.display.set_icon(logo_icon)
 
