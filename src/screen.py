@@ -8,7 +8,7 @@ import player as p
 import enemy as e
 import assets_generator as ag
 
-ASSET_DICTIONARY = ag.generate_assets()
+ASSET_DICTIONARY = ag.generate_all_static_assets()
 def init(width, height):
     """
     Initializes the window    :
@@ -50,13 +50,13 @@ def run(screen):
     # Enemy Init (png, x, y, movement_mod)
 
     # Top
-    e_1 = e.enemy(ASSET_DICTIONARY["Enemy1"], 400, 0, 100)
+    e_1 = e.enemy(400, 0, 100)
     # Left
-    e_2 = e.enemy(ASSET_DICTIONARY["Enemy1"], 0, 400, 100)
+    e_2 = e.enemy(0, 400, 100)
     # Bottom
-    e_3 = e.enemy(ASSET_DICTIONARY["Enemy1"], 400, 800, 100)
+    e_3 = e.enemy(400, 800, 100)
     # Right
-    e_4 = e.enemy(ASSET_DICTIONARY["Enemy1"], 800, 400, 100)
+    e_4 = e.enemy(800, 400, 100)
 
     # Main Game Loop
     while running:

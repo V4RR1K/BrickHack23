@@ -3,12 +3,14 @@ Enemy.py holds enemy specific code
 @date: 02-25-23
 @author: Greg Lynskey
 """
+import assets_generator
+import random
 class enemy:
     """
     Enemy class models the enemy attributes
     """
-    def __init__(self, icon, current_x, current_y, movement_mod):
-        self.icon = icon
+    def __init__(self, current_x, current_y, movement_mod):
+
         self.current_x = current_x
         self.current_y = current_y
         self.change_in_x = 0
@@ -16,7 +18,28 @@ class enemy:
         self.hitbox_rad = 32
         self.movement_mod = movement_mod
         self.quadrant = self.detect_quadrant()
+        self.icon = self.random_png()
         self.running = True
+
+
+    def random_png(self):
+        match (self.quadrant):
+            case 5:  # Coming from top
+                assets = assets_generator.generate_assets_dir("red")
+                name, icon = random.choice(list(assets.items()))
+                return icon
+            case 6:  # Coming from left
+                assets = assets_generator.generate_assets_dir("yellow")
+                name, icon = random.choice(list(assets.items()))
+                return icon
+            case 7:  # Coming from bottom
+                assets = assets_generator.generate_assets_dir("blue")
+                name, icon = random.choice(list(assets.items()))
+                return icon
+            case 8:  # Coming from left
+                assets = assets_generator.generate_assets_dir("green")
+                name, icon = random.choice(list(assets.items()))
+                return icon
 
     def enemy_place(self, screen, dt):
         if self.running:
