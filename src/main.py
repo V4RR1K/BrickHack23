@@ -1,7 +1,10 @@
-# Main Game File
+"""
+main.py contains the main game method
+@date: 02-25-23
+@author: Greg Lynskey
+"""
 
 import pygame
-
 import screen
 
 window_width = 800

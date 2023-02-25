@@ -1,3 +1,8 @@
+"""
+screen.py contains code pertaining to screen specific information
+@date: 02-25-23
+@author: Greg Lynskey
+"""
 import pygame
 
 def init(width, height):
