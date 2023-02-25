@@ -23,7 +23,7 @@ def init(width, height):
     # TODO: Game Specifics
     pygame.display.set_caption("Game Name")
 
-    pygame.display.set_icon(ASSET_DICTIONARY["nunes"])
+    pygame.display.set_icon(ASSET_DICTIONARY['Nunes'])
 
     return screen
 
@@ -45,19 +45,19 @@ def run(screen):
 
 
     # Player Init
-    player = p.player(ASSET_DICTIONARY["player_icon"],
+    player = p.player(ASSET_DICTIONARY["Player"],
                       400, 400, 40, 0, 20)
 
     # Enemy Init (png, x, y, movement_mod)
 
     # Top
-    e_1 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 400, 0, 100)
+    e_1 = e.enemy(ASSET_DICTIONARY["Enemy1"], 400, 0, 100)
     # Left
-    e_2 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 0, 400, 100)
+    e_2 = e.enemy(ASSET_DICTIONARY["Enemy1"], 0, 400, 100)
     # Bottom
-    e_3 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 400, 800, 100)
+    e_3 = e.enemy(ASSET_DICTIONARY["Enemy1"], 400, 800, 100)
     # Right
-    e_4 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 800, 400, 100)
+    e_4 = e.enemy(ASSET_DICTIONARY["Enemy1"], 800, 400, 100)
 
     # Main Game Loop
     while running:
