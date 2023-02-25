@@ -20,11 +20,11 @@ class enemy:
         self.hitbox_rad = 32
         self.movement_mod = movement_mod
 
-    def enemy_place(self, screen):
-        self.move_to_center()
+    def enemy_place(self, screen, dt):
+        self.move_to_center(dt)
         screen.blit(self.icon, (self.current_x, self.current_y))
 
-    def move_to_center(self):
+    def move_to_center(self, dt):
         """
         move_to_center moves the enemy closer to the center
         """
@@ -45,8 +45,8 @@ class enemy:
                 self.change_in_x = -1 * self.movement_mod
 
         # Make the move
-        self.current_x += self.change_in_x
-        self.current_y += self.change_in_y
+        self.current_x += self.change_in_x * dt
+        self.current_y += self.change_in_y * dt
 
     def detect_quadrant(self):
         """

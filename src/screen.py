@@ -28,7 +28,6 @@ def init(width, height):
 
     return screen
 
-
 def run(screen):
     """
     Runs the Game instance
@@ -40,16 +39,19 @@ def run(screen):
     asset_dict = ag.generate_assets()
     screen.fill((171,219,227))
 
-    fps = 15
-    clock = pygame.time.Clock()
-    tick = clock.tick(fps)
+    # FPS Settings
+    fps = 60
+    dt = 0
+    game_clock = pygame.time.Clock()
+    game_clock.tick(fps)
+
 
     # Player Init
     player = p.player(asset_dict["player_icon"],
                       400, 400, 40, 0, 20)
 
     # Enemy Init (png, x, y, movement_mod)
-    e_1 = e.enemy(asset_dict["enemy1_icon"], 0, 400, 1)
+    e_1 = e.enemy(asset_dict["enemy1_icon"], 0, 400, 100)
 
     # Main Game Loop
     while running:
@@ -63,9 +65,12 @@ def run(screen):
                 break
 
         player.player_place(screen)
-        e_1.enemy_place(screen)
+
+        # Enemy Bounds
+        e_1.enemy_place(screen, dt)
 
         # End of loop
+        dt = game_clock.tick(fps) / 1000    # Update delta time
         pygame.display.update()
 
     return 0
