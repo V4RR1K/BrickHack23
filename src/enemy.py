@@ -20,6 +20,10 @@ class enemy:
         self.hitbox_rad = 32
         self.movement_mod = movement_mod
 
+    def enemy_place(self, screen):
+        self.move_to_center()
+        screen.blit(self.icon, (self.current_x, self.current_y))
+
     def move_to_center(self):
         """
         move_to_center moves the enemy closer to the center
