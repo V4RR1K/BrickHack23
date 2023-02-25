@@ -22,7 +22,7 @@ def init(width, height):
 
     pygame.display.set_caption("Katabasis")
 
-    pygame.display.set_icon(ASSET_DICTIONARY['Nunes'])
+    pygame.display.set_icon(ASSET_DICTIONARY['BlobBig'])
 
     return screen
 
