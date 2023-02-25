@@ -11,5 +11,9 @@ def generate_assets():
     :return: asset dictionary
     """
     player_icon = pygame.image.load('assets/Player.png')
+    enemy1_icon = pygame.image.load('assets/Enemy1.png')
+    nunes = pygame.image.load('assets/Nunes.png')
 
-    return {"player_icon": player_icon}
+    return {"player_icon": player_icon,
+            "enemy1_icon": enemy1_icon,
+            "nunes": nunes}
