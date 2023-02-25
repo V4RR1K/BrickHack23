@@ -4,6 +4,7 @@ screen.py contains code pertaining to screen specific information
 @author: Greg Lynskey
 """
 import pygame
+import player
 
 def init(width, height):
     pygame.init()
@@ -22,6 +23,8 @@ def run(screen):
     running = True
 
     screen.fill((171,219,227))
+
+    player =
 
     # Main Game Loop
     while running:

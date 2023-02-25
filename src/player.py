@@ -21,3 +21,5 @@ class player:
         self.score = score
         self.health = health
 
+    def player_place(self, screen):
+        screen.blit(self.icon, (self.current_x, self.current_y))
