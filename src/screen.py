@@ -20,8 +20,7 @@ def init(width, height):
 
     screen = pygame.display.set_mode((width, height))
 
-    # TODO: Game Specifics
-    pygame.display.set_caption("Game Name")
+    pygame.display.set_caption("Katabasis")
 
     pygame.display.set_icon(ASSET_DICTIONARY['Nunes'])
 
