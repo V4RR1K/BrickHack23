@@ -15,22 +15,49 @@ class enemy:
         self.change_in_y = 0
         self.hitbox_rad = 32
         self.movement_mod = movement_mod
+        self.quadrant = self.detect_quadrant()
+        self.running = True
 
     def enemy_place(self, screen, dt):
-        self.move_to_center(dt)
-        # Only place if outside inner circle
-        if (self.current_x < 350 or self.current_x > 450
-                and self.current_y < 350 or self.current_y > 450):
-            screen.blit(self.icon, (self.current_x, self.current_y))
+        if self.running:
+            # Move
+            self.move_to_center(dt)
+            print("Current x:" + str(self.current_x) +
+                  "\t|\tCurrent y:" + str(self.current_y))
+            # Only place if outside inner circle
+            self.enemy_print_helper(screen)
 
+
+    def enemy_print_helper(self, screen):
+        match(self.quadrant):
+            case 5:     # Coming from top
+                if (self.current_y < 350):
+                    screen.blit(self.icon, (self.current_x, self.current_y))
+                else:
+                    self.running = False
+            case 6:     # Coming from left
+                if (self.current_x < 350):
+                    screen.blit(self.icon, (self.current_x, self.current_y))
+                else:
+                    self.running = False
+
+            case 7:  # Coming from top
+                if (self.current_y > 450):
+                    screen.blit(self.icon, (self.current_x, self.current_y))
+                else:
+                    self.running = False
+            case 8:  # Coming from right
+                if (self.current_x > 450):
+                    screen.blit(self.icon, (self.current_x, self.current_y))
+                else:
+                    self.running = False
     def move_to_center(self, dt):
         """
         move_to_center moves the enemy closer to the center
         """
-        quadrant = self.detect_quadrant()
 
         # Determine move
-        match(quadrant):
+        match(self.quadrant):
             case 0: # At origin
                 self.change_in_y = 0
                 self.change_in_x = 0

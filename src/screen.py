@@ -51,7 +51,15 @@ def run(screen):
                       400, 400, 40, 0, 20)
 
     # Enemy Init (png, x, y, movement_mod)
-    e_1 = e.enemy(asset_dict["enemy1_icon"], 0, 400, 100)
+
+    # Top
+    e_1 = e.enemy(asset_dict["enemy1_icon"], 400, 0, 100)
+    # Left
+    e_2 = e.enemy(asset_dict["enemy1_icon"], 0, 400, 100)
+    # Bottom
+    e_3 = e.enemy(asset_dict["enemy1_icon"], 400, 800, 100)
+    # Right
+    e_4 = e.enemy(asset_dict["enemy1_icon"], 800, 400, 100)
 
     # Main Game Loop
     while running:
@@ -66,8 +74,12 @@ def run(screen):
 
         player.player_place(screen)
 
-        # Enemy Bounds
+        # Enemy Placement
         e_1.enemy_place(screen, dt)
+        e_2.enemy_place(screen, dt)
+        e_3.enemy_place(screen, dt)
+        e_4.enemy_place(screen, dt)
+
 
         # End of loop
         dt = game_clock.tick(fps) / 1000    # Update delta time
