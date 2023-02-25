@@ -11,16 +11,13 @@ class enemy:
                  icon,
                  current_x,
                  current_y,
-                 change_in_x,
-                 change_in_y,
-                 hitbox_rad,
                  movement_mod):
         self.icon = icon
         self.current_x = current_x
         self.current_y = current_y
-        self.change_in_x = change_in_x
-        self.change_in_y = change_in_y
-        self.hitbox_rad = hitbox_rad
+        self.change_in_x = 0
+        self.change_in_y = 0
+        self.hitbox_rad = 32
         self.movement_mod = movement_mod
 
     def move_to_center(self):
@@ -29,8 +26,23 @@ class enemy:
         """
         quadrant = self.detect_quadrant()
 
+        # Determine move
+        match(quadrant):
+            case 0: # At origin
+                self.change_in_y = 0
+                self.change_in_x = 0
+            case 5:     # Coming from top
+                self.change_in_y = 1 * self.movement_mod
+            case 6:     # Coming from left
+                self.change_in_x = 1 * self.movement_mod
+            case 7:     # Coming from bottom
+                self.change_in_y = -1 * self.movement_mod
+            case 8:     # Coming from left
+                self.change_in_x = -1 * self.movement_mod
 
-
+        # Make the move
+        self.current_x += self.change_in_x
+        self.current_y += self.change_in_y
 
     def detect_quadrant(self):
         """
@@ -52,16 +64,18 @@ class enemy:
                 return 8
             if self.current_x < 400:
                 return 6
-        # Quadrant 1
-        if self.current_x > 400 and self.current_y > 400:
-            return 1
-        # Quadrant 2
-        if self.current_x < 400 and self.current_y > 400:
-            return 2
-        # Quadrant 3
-        if self.current_x < 400 and self.current_y < 400:
-            return 3
-        # Quadrant 4
-        if self.current_x > 400 and self.current_y < 400:
-            return 4
+
+        # Approaching on Diagonal
+        # # Quadrant 1
+        # if self.current_x > 400 and self.current_y > 400:
+        #     return 1
+        # # Quadrant 2
+        # if self.current_x < 400 and self.current_y > 400:
+        #     return 2
+        # # Quadrant 3
+        # if self.current_x < 400 and self.current_y < 400:
+        #     return 3
+        # # Quadrant 4
+        # if self.current_x > 400 and self.current_y < 400:
+        #     return 4
 

@@ -27,6 +27,12 @@ def init(width, height):
 
 
 def run(screen):
+    """
+    Runs the Game instance
+    :param screen: screen to put game on
+    :return: 0 on success
+    """
+
     running = True
     asset_dict = ag.generate_assets()
     screen.fill((171,219,227))
@@ -44,3 +50,5 @@ def run(screen):
                 break
         player.player_place(screen)
         pygame.display.update()
+
+    return 0
