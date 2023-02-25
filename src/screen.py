@@ -8,6 +8,7 @@ import player as p
 import enemy as e
 import assets_generator as ag
 
+ASSET_DICTIONARY = ag.generate_assets()
 def init(width, height):
     """
     Initializes the window    :
@@ -17,14 +18,12 @@ def init(width, height):
     """
     pygame.init()
 
-
-
     screen = pygame.display.set_mode((width, height))
 
     # TODO: Game Specifics
     pygame.display.set_caption("Game Name")
-    # logo_icon = pygame.image.load('Assets/GameIcon.png')
-    # pygame.display.set_icon(logo_icon)
+
+    pygame.display.set_icon(ASSET_DICTIONARY["nunes"])
 
     return screen
 
@@ -36,7 +35,6 @@ def run(screen):
     """
 
     running = True
-    asset_dict = ag.generate_assets()
     screen.fill((171,219,227))
 
     # FPS Settings
@@ -47,19 +45,19 @@ def run(screen):
 
 
     # Player Init
-    player = p.player(asset_dict["player_icon"],
+    player = p.player(ASSET_DICTIONARY["player_icon"],
                       400, 400, 40, 0, 20)
 
     # Enemy Init (png, x, y, movement_mod)
 
     # Top
-    e_1 = e.enemy(asset_dict["enemy1_icon"], 400, 0, 100)
+    e_1 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 400, 0, 100)
     # Left
-    e_2 = e.enemy(asset_dict["enemy1_icon"], 0, 400, 100)
+    e_2 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 0, 400, 100)
     # Bottom
-    e_3 = e.enemy(asset_dict["enemy1_icon"], 400, 800, 100)
+    e_3 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 400, 800, 100)
     # Right
-    e_4 = e.enemy(asset_dict["enemy1_icon"], 800, 400, 100)
+    e_4 = e.enemy(ASSET_DICTIONARY["enemy1_icon"], 800, 400, 100)
 
     # Main Game Loop
     while running:

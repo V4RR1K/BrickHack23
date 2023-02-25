@@ -1,0 +1,77 @@
+commit 764cd31cfb6a5060d2976f0fa70ac965d273c865
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 16:00:04 2023 -0500
+
+    Greg: Logic fdor spawning enimies created
+
+commit 36b6c97eae7a8ad54814dddb965f332a67c1962b
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 15:32:57 2023 -0500
+
+    Greg: Enemies despawn after hitting circle spawn
+
+commit 3cc31f1d690522979fac68dbc74e0a5afed4aa8d
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 15:18:56 2023 -0500
+
+    Greg: Updated program to run on delta time
+
+commit 30a402e77f255566f0b1b7f01625a4e4467582aa
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 15:03:55 2023 -0500
+
+    Greg: Sorting out fps issues
+
+commit cba3da2c10bd63b4f6b383c2b3c81feb9024e0de
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 14:47:23 2023 -0500
+
+    Greg: Movement logic sorted out for enemies
+
+commit 2e82731a05a4ed0ca5e4a3388a80a3d72f67c689
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 14:36:49 2023 -0500
+
+    Greg: Added more icons to generate file
+
+commit 696c1bd9c9150d819411d9e64bbec8697c6429f2
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 14:33:46 2023 -0500
+
+    Greg: Refactored locations of some files game window now updating
+
+commit 0be5af694315feec3f720ffdbe5f82fcac4a6a34
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 14:18:11 2023 -0500
+
+    Greg: Loading assets in assets.py
+
+commit 587d14a71d8cbebddc32233e96b6feab8629ebce
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 13:29:22 2023 -0500
+
+    Greg: Added player and ring classes
+
+commit cea83548e1496cbf170bb46db25fd706b06ae156
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 13:22:25 2023 -0500
+
+    Greg: Added screen and enemy files, bulked up documentation
+
+commit 8db834765e4c13bebeea78203b689af5f7387edf
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 12:55:57 2023 -0500
+
+    Initialized window
+
+commit a12ee83e693fb6a37c69da6a5e9bf8813f0d773b
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 12:22:28 2023 -0500
+
+    Greg: Added main python file
+
+commit c92b7ab50759b78f095680796d10f1a247d59fc2
+Author: Greg_Lynskey <75799600+V4RR1K@users.noreply.github.com>
+Date:   Sat Feb 25 12:01:13 2023 -0500
+
+    Initial commit
