@@ -112,10 +112,18 @@ def run(screen):
     all_enemies.extend(left_arr)
     print(all_enemies)
 
-    top_arr[0].update_spawn(0)
+    top_arr[0].update_spawn(1)
     bot_arr[0].update_spawn(5)
-    right_arr[0].update_spawn(10)
+    right_arr[0].update_spawn(8)
     left_arr[0].update_spawn(15)
+    top_arr[1].update_spawn(3)
+    bot_arr[1].update_spawn(4)
+    right_arr[1].update_spawn(10)
+    left_arr[1].update_spawn(13)
+    top_arr[2].update_spawn(20)
+    bot_arr[2].update_spawn(18)
+    right_arr[2].update_spawn(19)
+    left_arr[2].update_spawn(17)
 
     before_play = all_enemies
     in_play = list()
@@ -125,13 +133,15 @@ def run(screen):
     # Main Game Loop
     while running:
         curr_time = time.perf_counter() - timer_start
-        print(curr_time)
+        # print(curr_time)
 
         for enemy in before_play:
-            if enemy.spawn_time >= curr_time:
+            if enemy.spawn_time >= curr_time and enemy.spawn_time <= curr_time + .1:
                 enemy.running = True
                 in_play.append(enemy)
                 before_play.remove(enemy)
+                print("Enemy in play at: " + str(curr_time))
+
 
         # Add enemies to screen
         # load_enemies(time, left_arr, l_c, right_arr, r_c, top_arr, t_c, bot_arr, b_c, in_play)
@@ -169,17 +179,18 @@ def run(screen):
         scoreboard.score_update(player.score)
         scoreboard.score_place(screen)
 
+        dt = game_clock.tick(fps) / 1000  # Update delta time
         # Enemy Placement and hit checking
         for enemy in in_play:
             enemy.enemy_place(screen, dt)
             player.hit_check(enemy, hit_marker)
 
         screen.blit(ASSET_DICTIONARY["Circle"], (300,300))
-        player.player_place(screen, time)
+        player.player_place(screen, curr_time)
         ring.ring_place(screen)
         hit_marker.hit_marker_place(screen)
         # End of loop
-        dt = game_clock.tick(fps) / 1000    # Update delta time
+
         pygame.display.update()
 
     print("Player Score: " + str(player.score))

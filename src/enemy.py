@@ -125,3 +125,6 @@ class enemy:
     def update_spawn(self, spawn_time):
         self.spawn_time = spawn_time
 
+    def update_running(self, running):
+        self.running = running
+

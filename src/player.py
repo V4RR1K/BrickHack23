@@ -25,14 +25,22 @@ class player:
 
     def player_place(self, screen, time):
         self.flip += 1
-        if self.flip == 60:
+        if self.flip == 30:
             match(self.icon_num):
                 case 1:
-                    self.icon = dictionary['DaBaby2']
+                    self.icon = dictionary['DaBaby1']
                     self.icon_num = 2
                     self.flip = 0
                 case 2:
-                    self.icon = dictionary['DaBaby1']
+                    self.icon = dictionary['DaBaby2']
+                    self.icon_num = 3
+                    self.flip = 0
+                case 3:
+                    self.icon = dictionary['DaBaby3']
+                    self.icon_num = 4
+                    self.flip = 0
+                case 4:
+                    self.icon = dictionary['DaBaby4']
                     self.icon_num = 1
                     self.flip = 0
             self.flip += 1
