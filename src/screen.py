@@ -3,6 +3,7 @@ screen.py contains code pertaining to screen specific information
 @date: 02-25-23
 @author: Greg Lynskey
 """
+import numpy
 import pygame
 import player as p
 import enemy as e
@@ -12,6 +13,7 @@ import score as s
 import assets_generator as ag
 import random
 import time
+import numpy
 
 random.seed(176)
 ASSET_DICTIONARY = ag.generate_all_static_assets()
@@ -90,16 +92,17 @@ def run(screen):
     right_arr = list()
     bot_arr = list()
     for i in range(0, 40):
-        speed_mod = random.randint(100, 150)
+        speed_mod = 100
+        # speed_mod = random.randint(100, 150)
         e_t = e.enemy(400, 0, speed_mod)
         top_arr.append(e_t)
-        speed_mod = random.randint(100, 150)
+        # speed_mod = random.randint(100, 150)
         e_b = e.enemy(400, 800, speed_mod)
         bot_arr.append(e_b)
-        speed_mod = random.randint(100, 150)
+        # speed_mod = random.randint(100, 150)
         e_r = e.enemy(800, 400, speed_mod)
         right_arr.append(e_r)
-        speed_mod = random.randint(100, 150)
+        # speed_mod = random.randint(100, 150)
         e_l = e.enemy(0, 400, speed_mod)
         left_arr.append(e_l)
 
@@ -109,14 +112,24 @@ def run(screen):
     all_enemies.extend(bot_arr)
     all_enemies.extend(right_arr)
     all_enemies.extend(left_arr)
-    print(all_enemies)
 
+    numpy.random.shuffle(all_enemies)
+    timed_enemies = list()
+
+    print(all_enemies)
+    significant_times = [7.5, 7.75, 8.0, 8.25, 9, 9.25, 9.75, 10.25, 11, 11.25, 11.75, 12, 12.25,
+                         12.25, 12, 13.25, 13.75, 14.25, 15, 15.25, 15.75, 16, 16.25, 17, 17.5,
+                         17.75, 18.25, 19, 19.25, 19.75, 20, 20.25 ]
+    index = 0
+    for sig_time in significant_times:
+        timed_enemies.append(all_enemies[index].update_spawn(sig_time))
+        index += 1
     # top_arr[0].update_spawn(1)
-    bot_arr[0].update_spawn(5)
-    right_arr[0].update_spawn(8)
-    left_arr[0].update_spawn(15)
-    top_arr[1].update_spawn(3)
-    bot_arr[1].update_spawn(4)
+    # bot_arr[0].update_spawn(7.5)
+    # right_arr[0].update_spawn(7.75)
+    # left_arr[0].update_spawn(8.0)
+    # top_arr[1].update_spawn(8.25)
+    # bot_arr[1].update_spawn(4)
     # right_arr[1].update_spawn(10)
     # left_arr[1].update_spawn(13)
     # top_arr[2].update_spawn(20)
