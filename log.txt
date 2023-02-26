@@ -1,3 +1,81 @@
+commit 74e5616110fb99bf4df0029a5efee6044e73e5f9
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 01:12:42 2023 -0500
+
+    Greg: New Background, Moved enemy creation to arrays
+
+commit 03365f3f685e70c498542541e9b60c543b50044c
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 23:59:45 2023 -0500
+
+    Greg: Score feature updated
+
+commit 8cb411048ce637b804752800e5c516ff8320fd7e
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 23:23:18 2023 -0500
+
+    Greg: Added logo
+
+commit cc2067b0c5bc6dae73e2c820a9d58438fde9a37d
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 23:20:29 2023 -0500
+
+    Greg: Adding more assets and controls are complete
+
+commit e0721c529e91f8c137fe0253e020c5a373239984
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 22:07:51 2023 -0500
+
+    Greg: Made enemies iterable
+
+commit 8c9add0afa878e85522b52bcf43da5b117cc4f8e
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 19:59:41 2023 -0500
+
+    Greg: Damage logic completed
+
+commit 5c81c5b2b682b175c089a41912379923d2c13f04
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 19:46:03 2023 -0500
+
+    Greg: Working on taking damage logic
+
+commit 8635e3857124c3c2bf5636dfde797c58fe0f6f58
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 19:07:55 2023 -0500
+
+    Greg: Updated asset to include hit marker file
+
+commit 0f9cd0cc02337e4f25b29968bb6cc788aadafd5b
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 18:47:53 2023 -0500
+
+    Greg: New Assets
+
+commit bb6d1863776b6205960d8f3389e3431d9ae58758
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 17:58:35 2023 -0500
+
+    Greg: Assets randomly generated and sorted by color
+
+commit be1f58c0e73990d21cf2bf3898a24e78a7b0a6f5
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 17:18:45 2023 -0500
+
+    Greg: Generate assets by directory
+
+commit c08156ad1b626c089f49bfe4caee146a7481d96d
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 16:43:54 2023 -0500
+
+    Greg: Automated asset addition process
+
+commit 93517e74456200bb0de0f059df27f8288273481f
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sat Feb 25 16:29:35 2023 -0500
+
+    Greg: Auto load assets from static library
+
 commit 764cd31cfb6a5060d2976f0fa70ac965d273c865
 Author: Greg Lynskey <gclynskey@outlook.com>
 Date:   Sat Feb 25 16:00:04 2023 -0500

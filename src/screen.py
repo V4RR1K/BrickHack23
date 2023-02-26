@@ -63,22 +63,25 @@ def run(screen):
 
     # Top
     top_arr = list()
-    for i in range(0,40):
+    for i in range(0, 40):
         speed_mod = random.randint(100, 150)
         e_t = e.enemy(400, 0 ,speed_mod)
         top_arr.append(e_t)
+
     # Left
     left_arr = list()
     for i in range(0, 40):
         speed_mod = random.randint(100, 150)
         e_l = e.enemy(0, 400, speed_mod)
         left_arr.append(e_l)
+
     # Bottom
     bot_arr = list()
     for i in range(0, 40):
         speed_mod = random.randint(100, 150)
         e_b = e.enemy(400, 800, speed_mod)
         bot_arr.append(e_b)
+
     # Right
     right_arr = list()
     for i in range(0, 40):
@@ -93,12 +96,25 @@ def run(screen):
     all_enemies.extend(left_arr)
     print(all_enemies)
 
+    # Time in seconds
+    time = 0
+    frame_count = 0
 
     # Main Game Loop
     while running:
+        # Timing assist
+        frame_count += 1
+        if frame_count == 15 and frame_count == 45:
+            time += 0.25
+        if frame_count == 30:
+            time += 0.5
+        if frame_count == 60:
+            time += 1
+            frame_count = 0
 
         screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
+        # Pygame event
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
