@@ -25,6 +25,7 @@ def generate_all_static_assets():
     red = generate_assets_dir("red")
     yellow = generate_assets_dir("yellow")
     const = generate_assets_dir("z_const")
+    hit = generate_assets_dir("z_hit_marker")
 
     all = dict()
     all |= blue
@@ -32,6 +33,7 @@ def generate_all_static_assets():
     all |= red
     all |= yellow
     all |= const
+    all |= hit
     print(all)
     return all
 
@@ -98,6 +100,15 @@ def generate_assets_dir(dir):
             return asset_dictionary
         case "z_const":
             gen_asset_path = 'assets/static/z_const/'
+            asset_dictionary = dict()
+            for file in os.listdir(gen_asset_path):
+                asset_path = os.path.join(gen_asset_path, file)
+                print(asset_path)
+                asset_dictionary[file[:len(file) - 4]] = pygame.image.load(asset_path)
+            print(asset_dictionary)
+            return asset_dictionary
+        case "z_hit_marker":
+            gen_asset_path = 'assets/static/z_hit_marker/'
             asset_dictionary = dict()
             for file in os.listdir(gen_asset_path):
                 asset_path = os.path.join(gen_asset_path, file)
