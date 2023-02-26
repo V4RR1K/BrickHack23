@@ -56,13 +56,28 @@ def run(screen):
     # Enemy Init (png, x, y, movement_mod)
 
     # Top
-    e_1 = e.enemy(400, 0, 100)
+    e_1 = e.enemy(400, 0, 60)
+    top_arr = list()
+    top_arr.append(e_1)
     # Left
-    e_2 = e.enemy(0, 400, 100)
+    e_2 = e.enemy(0, 400, 175)
+    left_arr = list()
+    left_arr.append(e_2)
     # Bottom
     e_3 = e.enemy(400, 800, 100)
+    bot_arr = list()
+    bot_arr.append(e_3)
     # Right
-    e_4 = e.enemy(800, 400, 100)
+    e_4 = e.enemy(800, 400, 130)
+    right_arr = list()
+    right_arr.append(e_4)
+
+    all_enemies = list()
+    all_enemies.extend(top_arr)
+    all_enemies.extend(bot_arr)
+    all_enemies.extend(right_arr)
+    all_enemies.extend(left_arr)
+    print(all_enemies)
 
     # Main Game Loop
     while running:
@@ -74,18 +89,25 @@ def run(screen):
                 running = False
                 print("Closing Game Window")
                 break
+            # Slash Code
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    slash = 1
+                if event.key == pygame.K_LEFT:
+                    slash = 2
+                if event.key == pygame.K_UP:
+                    slash = 3
+                if event.key == pygame.K_DOWN:
+                    slash = 4
 
         player.player_place(screen)
 
-        # Enemy Placement
-        e_1.enemy_place(screen, dt)
-        player.hit_check(e_1, hit_marker)
-        e_2.enemy_place(screen, dt)
-        player.hit_check(e_2, hit_marker)
-        e_3.enemy_place(screen, dt)
-        player.hit_check(e_3, hit_marker)
-        e_4.enemy_place(screen, dt)
-        player.hit_check(e_4, hit_marker)
+        # Enemy Placement and hit checking
+        for enemy in all_enemies:
+            enemy.enemy_place(screen, dt)
+            player.hit_check(enemy, hit_marker)
+
+
 
 
         ring.ring_place(screen)

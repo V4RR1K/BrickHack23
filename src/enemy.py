@@ -21,6 +21,7 @@ class enemy:
         self.icon = self.random_png()
         self.running = True
         self.did_damage = False
+        self.isSlashed = False
 
 
     def random_png(self):
