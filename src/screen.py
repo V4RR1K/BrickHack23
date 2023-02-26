@@ -10,7 +10,9 @@ import ring as r
 import hit_marker as h
 import score as s
 import assets_generator as ag
+import random
 
+random.seed(176)
 ASSET_DICTIONARY = ag.generate_all_static_assets()
 def init(width, height):
     """
@@ -37,7 +39,7 @@ def run(screen):
     """
 
     running = True
-    screen.fill((171,219,227))
+    screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
     # FPS Settings
     fps = 60
@@ -60,21 +62,29 @@ def run(screen):
     # Enemy Init (x, y, movement_mod)
 
     # Top
-    e_1 = e.enemy(400, 0, 60)
     top_arr = list()
-    top_arr.append(e_1)
+    for i in range(0,40):
+        speed_mod = random.randint(100, 150)
+        e_t = e.enemy(400, 0 ,speed_mod)
+        top_arr.append(e_t)
     # Left
-    e_2 = e.enemy(0, 400, 175)
     left_arr = list()
-    left_arr.append(e_2)
+    for i in range(0, 40):
+        speed_mod = random.randint(100, 150)
+        e_l = e.enemy(0, 400, speed_mod)
+        left_arr.append(e_l)
     # Bottom
-    e_3 = e.enemy(400, 800, 100)
     bot_arr = list()
-    bot_arr.append(e_3)
+    for i in range(0, 40):
+        speed_mod = random.randint(100, 150)
+        e_b = e.enemy(400, 800, speed_mod)
+        bot_arr.append(e_b)
     # Right
-    e_4 = e.enemy(800, 400, 130)
     right_arr = list()
-    right_arr.append(e_4)
+    for i in range(0, 40):
+        speed_mod = random.randint(100, 150)
+        e_r = e.enemy(800, 400, speed_mod)
+        right_arr.append(e_r)
 
     all_enemies = list()
     all_enemies.extend(top_arr)
@@ -83,10 +93,11 @@ def run(screen):
     all_enemies.extend(left_arr)
     print(all_enemies)
 
+
     # Main Game Loop
     while running:
 
-        screen.fill((171, 219, 227))
+        screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
