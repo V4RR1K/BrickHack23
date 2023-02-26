@@ -29,6 +29,10 @@ def init(width, height):
 
     pygame.display.set_icon(ASSET_DICTIONARY['Logo'])
 
+    pygame.mixer.init()
+    pygame.mixer.music.load('assets/music/song1.mp3')
+    pygame.mixer.music.play()
+
     return screen
 
 def run(screen):
