@@ -18,12 +18,18 @@ def level_one():
 def level_two():
     s = screen.init(window_width, window_height)
     screen.run(s, 2)
+
+def level_three():
+    s = screen.init(window_width, window_height)
+    screen.run(s, 3)
+
 def main():
     s = screen.init(window_width, window_height)
     menu = pygame_menu.Menu("Katabasis", 800, 800, theme=pygame_menu.themes.THEME_DARK)
 
     menu.add.button('Level 1', level_one)
     menu.add.button('Level 2', level_two)
+    menu.add.button('Level 3', level_three)
     menu.add.button('Quit', pygame_menu.events.EXIT)
     menu.mainloop(s)
 

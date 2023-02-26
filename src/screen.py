@@ -47,6 +47,12 @@ def run(screen, level):
     if level == 1:
         pygame.mixer.music.load('assets/music/song1.mp3')
         pygame.mixer.music.play()
+    if level == 2:
+        pygame.mixer.music.load('assets/music/song2.mp3')
+        pygame.mixer.music.play()
+    if level == 3:
+        pygame.mixer.music.load('assets/music/song3_A.mp3')
+        pygame.mixer.music.play()
 
     screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
@@ -111,6 +117,24 @@ def run(screen, level):
                              60.25, 60.75, 62, 62.25, 63, 63.25, 63.75, 64.25, 64.25, 66.75,
                              69.25, 69.75, 70.25, 71.25, 71.75, 72, 72.25, 75
                              ]
+    if level == 2:
+        sum = 0
+        for i in range(0,40):
+            sum += 0.46
+            significant_times.append(sum)
+
+    if level == 3:
+        sum = 0
+        flipper = False
+        for i in range(0, 40):
+            sum += 1
+            if flipper:
+                significant_times.append(sum + 0.5)
+                flipper = False
+            else:
+                flipper = True
+            significant_times.append(sum)
+
     index = 0
     for sig_time in significant_times:
         timed_enemies.append(all_enemies[index].update_spawn(sig_time))
@@ -205,5 +229,6 @@ def run(screen, level):
                 break
         pygame.display.update()
 
+    pygame.mixer.music.stop()
     print("Player Score: " + str(player.score))
     return 0
