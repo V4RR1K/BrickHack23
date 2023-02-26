@@ -225,13 +225,13 @@ def run(screen):
 
     while running:
         screen.blit(ASSET_DICTIONARY["GameOver"], (0, 0))
+        scoreboard.score_place(screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
                 print("Closing Game Window")
                 break
         pygame.display.update()
-
 
     print("Player Score: " + str(player.score))
     return 0

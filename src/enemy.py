@@ -5,12 +5,16 @@ Enemy.py holds enemy specific code
 """
 import assets_generator
 import random
+
+a = assets_generator.generate_all_static_assets()
 class enemy:
     """
     Enemy class models the enemy attributes
     """
     def __init__(self, current_x, current_y, movement_mod):
 
+        self.name = None
+        self.attack_name = None
         self.current_x = current_x
         self.current_y = current_y
         self.change_in_x = 0
@@ -24,6 +28,8 @@ class enemy:
         self.isSlashed = False
         self.spawn_time = 0
         self.estimated_delta_t = self.calculate_delta_t()
+        self.run_count = 0
+        self.icon_num = 0
 
     def calculate_delta_t(self):
         return ((300 / (self.movement_mod * .0165)) / 60) + 0.0758
@@ -32,27 +38,64 @@ class enemy:
             case 5:  # Coming from top
                 assets = assets_generator.generate_assets_dir("red")
                 name, icon = random.choice(list(assets.items()))
+                if "Attack" in name:
+                    self.name = name.replace("Attack", "")
+                    self.attack_name = name
+                else:
+                    self.name = name
+                    self.attack_name = name.replace(".png", "Attack.png")
                 return icon
             case 6:  # Coming from left
                 assets = assets_generator.generate_assets_dir("yellow")
                 name, icon = random.choice(list(assets.items()))
+                if "Attack" in name:
+                    self.name = name.replace("Attack", "")
+                    self.attack_name = name
+                else:
+                    self.name = name
+                    self.attack_name = name.replace(".png", "Attack.png")
                 return icon
             case 7:  # Coming from bottom
                 assets = assets_generator.generate_assets_dir("blue")
                 name, icon = random.choice(list(assets.items()))
+                if "Attack" in name:
+                    self.name = name.replace("Attack", "")
+                    self.attack_name = name
+                else:
+                    self.name = name
+                    self.attack_name = name.replace(".png", "Attack.png")
                 return icon
             case 8:  # Coming from left
                 assets = assets_generator.generate_assets_dir("green")
                 name, icon = random.choice(list(assets.items()))
+                if "Attack" in name:
+                    self.name = name.replace("Attack", "")
+                    self.attack_name = name
+                else:
+                    self.name = name
+                    self.attack_name = name.replace(".png", "Attack.png")
                 return icon
 
     def enemy_place(self, screen, dt):
         if self.running:
             # Move
             self.move_to_center(dt)
+            if self.run_count == 20:
+                if self.icon_num == 0:
+                    print(self.attack_name)
+                    self.icon = a[self.attack_name]
+                    self.icon_num = 1
+                    self.run_count = 0
+                else:
+                    print(self.name)
+                    self.icon = a[self.name]
+                    self.icon_num = 0
+                    self.run_count = 0
+
             # print("Current x:" + str(self.current_x) +
             #       "\t|\tCurrent y:" + str(self.current_y))
             # Only place if outside inner circle
+            self.run_count += 1
             self.enemy_print_helper(screen)
 
 
@@ -129,4 +172,14 @@ class enemy:
 
     def update_running(self, running):
         self.running = running
+
+    def animate(self):
+        if "Attack" in self.name:
+            self.name.replace("Attack", "")
+            self.icon = a[self.name]
+            print(self.name)
+        else:
+            self.name.replace(".png", "Attack.png")
+            self.icon = a[self.name]
+            print(self.name)
 
