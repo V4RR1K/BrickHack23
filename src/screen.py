@@ -151,6 +151,10 @@ def run(screen):
     timer_start = time.perf_counter()
     # Main Game Loop
     while running:
+        if player.health == 0:
+            screen.blit(ASSET_DICTIONARY["GameOver"], (0,0))
+
+            break
         curr_time = time.perf_counter() - timer_start
         # print(curr_time)
 
@@ -216,6 +220,18 @@ def run(screen):
         # End of loop
 
         pygame.display.update()
+
+    running = True
+
+    while running:
+        screen.blit(ASSET_DICTIONARY["GameOver"], (0, 0))
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                print("Closing Game Window")
+                break
+        pygame.display.update()
+
 
     print("Player Score: " + str(player.score))
     return 0
