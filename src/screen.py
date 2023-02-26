@@ -119,7 +119,7 @@ def run(screen, level):
                              ]
     if level == 2:
         sum = 0
-        for i in range(0,40):
+        for i in range(0,160):
             sum += 0.46
             significant_times.append(sum)
 
@@ -145,12 +145,18 @@ def run(screen, level):
 
     # Time in seconds
     timer_start = time.perf_counter()
+    win_game = False
     # Main Game Loop
     while running:
         if player.health == 0:
             screen.blit(ASSET_DICTIONARY["GameOver"], (0,0))
-
+            win_game = False
             break
+        elif player.health != 0 and len(before_play) == 0:
+            screen.blit(ASSET_DICTIONARY["Win_Screen"], (0, 0))
+            win_game = True
+            break
+
         curr_time = time.perf_counter() - timer_start
         # print(curr_time)
 
@@ -219,8 +225,13 @@ def run(screen, level):
 
     running = True
 
+
     while running:
-        screen.blit(ASSET_DICTIONARY["GameOver"], (0, 0))
+        if win_game:
+            screen.blit(ASSET_DICTIONARY["Win_Screen"], (0, 0))
+        else:
+            screen.blit(ASSET_DICTIONARY["GameOver"], (0, 0))
+
         scoreboard.score_place(screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
