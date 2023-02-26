@@ -8,6 +8,7 @@ import player as p
 import enemy as e
 import ring as r
 import hit_marker as h
+import score as s
 import assets_generator as ag
 
 ASSET_DICTIONARY = ag.generate_all_static_assets()
@@ -52,6 +53,9 @@ def run(screen):
 
     # Hit Marker Init
     hit_marker = h.hit_marker()
+
+    # Score
+    scoreboard = s.score()
 
     # Enemy Init (x, y, movement_mod)
 
@@ -112,6 +116,8 @@ def run(screen):
                         ring.slash(enemy, player, slash)
 
         player.player_place(screen)
+        scoreboard.score_update(player.score)
+        scoreboard.score_place(screen)
 
         # Enemy Placement and hit checking
         for enemy in all_enemies:
