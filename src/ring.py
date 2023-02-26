@@ -7,7 +7,7 @@ import assets_generator as a
 
 class ring:
     """
-    Ring class models the player attributes
+    Ring class models the ring attributes
     """
     def __init__(self):
         dictionary = a.generate_assets_dir("z_const")

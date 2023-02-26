@@ -142,7 +142,6 @@ def run(screen):
                     for enemy in all_enemies:
                         ring.slash(enemy, player, slash)
 
-        player.player_place(screen)
         scoreboard.score_update(player.score)
         scoreboard.score_place(screen)
 
@@ -151,6 +150,8 @@ def run(screen):
             enemy.enemy_place(screen, dt)
             player.hit_check(enemy, hit_marker)
 
+        screen.blit(ASSET_DICTIONARY["Circle"], (300,300))
+        player.player_place(screen)
         ring.ring_place(screen)
         hit_marker.hit_marker_place(screen)
         # End of loop
