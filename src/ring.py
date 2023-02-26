@@ -58,8 +58,8 @@ class ring:
             enemy.isSlashed = True
             slash_hit = True
 
-        if slash_hit is False:
-            player.score -= 1
+        # if slash_hit is False:
+        #     player.score -= 1
 
 
 
