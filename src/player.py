@@ -24,7 +24,33 @@ class player:
         screen.blit(self.icon, (self.current_x, self.current_y))
 
     def hit_check(self, enemy, hit_marker):
-        if enemy.current_x < 315 and enemy.quadrant == 6:
+        """
+        hit_check checks if enemy hits player
+        :param enemy: current enemy being checked
+        :param hit_marker: current hit marker to update
+        """
+        if enemy.current_y > 315 \
+                and enemy.quadrant == 5 \
+                and enemy.did_damage is False:
+            enemy.did_damage = True
+            self.health -= 1
+            hit_marker.hit_marker_decrease(self)
+        if enemy.current_x > 315 \
+                and enemy.quadrant == 6 \
+                and enemy.did_damage is False:
+            enemy.did_damage = True
+            self.health -= 1
+            hit_marker.hit_marker_decrease(self)
+        if enemy.current_y < 485 \
+                and enemy.quadrant == 7 \
+                and enemy.did_damage is False:
+            enemy.did_damage = True
+            self.health -= 1
+            hit_marker.hit_marker_decrease(self)
+        if enemy.current_x < 485 \
+                and enemy.quadrant == 8 \
+                and enemy.did_damage is False:
+            enemy.did_damage = True
             self.health -= 1
             hit_marker.hit_marker_decrease(self)
 

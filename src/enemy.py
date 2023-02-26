@@ -20,6 +20,7 @@ class enemy:
         self.quadrant = self.detect_quadrant()
         self.icon = self.random_png()
         self.running = True
+        self.did_damage = False
 
 
     def random_png(self):
@@ -55,22 +56,22 @@ class enemy:
         offset = 32
         match(self.quadrant):
             case 5:     # Coming from top
-                if (self.current_y < 300):
+                if (self.current_y < 330):
                     screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
             case 6:     # Coming from left
-                if (self.current_x < 300):
+                if (self.current_x < 330):
                     screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
             case 7:  # Coming from top
-                if (self.current_y > 500):
+                if (self.current_y > 470):
                     screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
             case 8:  # Coming from right
-                if (self.current_x > 500):
+                if (self.current_x > 470):
                     screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False

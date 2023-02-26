@@ -77,7 +77,6 @@ def run(screen):
 
         player.player_place(screen)
 
-
         # Enemy Placement
         e_1.enemy_place(screen, dt)
         player.hit_check(e_1, hit_marker)
