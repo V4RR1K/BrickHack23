@@ -24,7 +24,7 @@ def init(width, height):
 
     pygame.display.set_caption("Katabasis")
 
-    pygame.display.set_icon(ASSET_DICTIONARY['BlobBig'])
+    pygame.display.set_icon(ASSET_DICTIONARY['Logo'])
 
     return screen
 
@@ -53,7 +53,7 @@ def run(screen):
     # Hit Marker Init
     hit_marker = h.hit_marker()
 
-    # Enemy Init (png, x, y, movement_mod)
+    # Enemy Init (x, y, movement_mod)
 
     # Top
     e_1 = e.enemy(400, 0, 60)
@@ -117,9 +117,6 @@ def run(screen):
         for enemy in all_enemies:
             enemy.enemy_place(screen, dt)
             player.hit_check(enemy, hit_marker)
-
-
-
 
         ring.ring_place(screen)
         hit_marker.hit_marker_place(screen)

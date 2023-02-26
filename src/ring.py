@@ -5,7 +5,6 @@ ring.py holds ring of harmony specific code
 """
 import assets_generator as a
 
-
 class ring:
     """
     Ring class models the player attributes
