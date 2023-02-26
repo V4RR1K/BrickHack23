@@ -1,3 +1,57 @@
+commit 197c26d888dd51605cab730707a140cdea156fe7
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 05:07:23 2023 -0500
+
+    Greg: Implemented significant times to iterate through enemies
+
+commit 59b1acc3b79be6c203dd3b61ddcbba42cb6172ff
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 04:35:23 2023 -0500
+
+    Greg: heuristic within .01 on most cases, not accurate with many entities
+
+commit 5a5d08645343299c3489fd4f0d65b146c3a92bd5
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 04:01:26 2023 -0500
+
+    Greg: Making a timer heuristic to make enemies end at designated time
+
+commit 3a566dde5fc3f1484e0508ba7971e977e7e09464
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 03:39:03 2023 -0500
+
+    Greg: Timer works
+
+commit 9627d9518eaac8b986e59698530dd505f969f55f
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 03:16:07 2023 -0500
+
+    Greg: Tweaking time function
+
+commit 440f5eb75b85b888ad752899abd7b63e4e945106
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 02:11:45 2023 -0500
+
+    Greg: Added music
+
+commit 9e6b8fe7f9b7bc5163c94ef6479e6103f7b78ab9
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 02:06:53 2023 -0500
+
+    Greg: Moved health icon
+
+commit b667fa345d23aa167af2c05dc7ad411ccf50aca0
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 01:38:12 2023 -0500
+
+    Greg: Added platform
+
+commit be3ba535ffc1c60c06bbb11656e26a8f5997efe8
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 01:33:40 2023 -0500
+
+    Greg: Created timer to keep track of time in seconds
+
 commit 74e5616110fb99bf4df0029a5efee6044e73e5f9
 Author: Greg Lynskey <gclynskey@outlook.com>
 Date:   Sun Feb 26 01:12:42 2023 -0500
