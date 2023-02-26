@@ -1,5 +1,5 @@
 # Katabasis: Rhythm Hellscape
-
+![Our Logo](/src/assets/static/z_const/Logo.png)
 ## Game Description
 Katabasis is a thrilling rhythm game that takes players on a journey through 
 the underworld with a dancing protagonist as their guide. The game's main 
@@ -18,6 +18,8 @@ and eerie creatures lurking around every corner. The music in Katabasis is also 
 highlight, with a diverse range of genres that perfectly match the game's themes 
 and atmosphere.
 
+
+
 ## Authors
 - Greg Lynskey: Lead Developer
 - Jade Nguyen:  Lead Asset Designer
@@ -35,8 +37,8 @@ to demonstrate the groups developing, artistic, and musical skills and combine o
 for video games.
 
 ### Additional Credits
-Credit to Jack Hunsberger for the name
-Credit to ChatGPT for the Game Description
-Level 2 (Dancing Guy) from It's Always Sunny in Philadelphia
-Dancing Guy concept from It's Always Sunny in Philadelphia
-Level 3 (Free at last) by Marco Van Zomeran
+- Credit to Jack Hunsberger for the name
+- Credit to ChatGPT for the Game Description
+- Level 2 (Dancing Guy) from It's Always Sunny in Philadelphia
+- Dancing Guy concept from It's Always Sunny in Philadelphia
+- Level 3 (Free at last) by Marco Van Zomeran
