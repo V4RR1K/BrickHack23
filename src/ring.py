@@ -4,7 +4,7 @@ ring.py holds ring of harmony specific code
 @author: Greg Lynskey
 """
 import assets_generator as a
-import pygame
+
 
 class ring:
     """
@@ -21,29 +21,46 @@ class ring:
         screen.blit(self.icon, (self.current_x ,self.current_y))
 
     def slash(self, enemy, player, slash_code):
-        if (enemy.current_y <= 315 and enemy.current_y > 300) \
-                and enemy.quadrant == 5 \
-                and enemy.isSlashed is False:
+        slash_hit = False
+        # Right
+        if (enemy.current_x <= 525 and enemy.current_x > 485) \
+                and enemy.quadrant == 8 \
+                and enemy.isSlashed is False\
+                and slash_code == 1:
             player.score += 15
             print("hit")
             enemy.isSlashed = True
-        # if enemy.current_x > 315 \
-        #         and enemy.quadrant == 6 \
-        #         and enemy.did_damage is False:
-        #     enemy.did_damage = True
-        #     self.health -= 1
-        #     hit_marker.hit_marker_decrease(self)
-        # if enemy.current_y < 485 \
-        #         and enemy.quadrant == 7 \
-        #         and enemy.did_damage is False:
-        #     enemy.did_damage = True
-        #     self.health -= 1
-        #     hit_marker.hit_marker_decrease(self)
-        # if enemy.current_x < 485 \
-        #         and enemy.quadrant == 8 \
-        #         and enemy.did_damage is False:
-        #     enemy.did_damage = True
-        #     self.health -= 1
-        #     hit_marker.hit_marker_decrease(self)
+            slash_hit = True
+        # Left
+        if (enemy.current_x <= 325 - 32 and enemy.current_x > 290 - 32) \
+                and enemy.quadrant == 6 \
+                and enemy.isSlashed is False \
+                and slash_code == 2:
+            player.score += 15
+            print("hit")
+            enemy.isSlashed = True
+            slash_hit = True
+        # Top
+        if (enemy.current_y <= 325 - 32 and enemy.current_y > 290 - 32) \
+                and enemy.quadrant == 5 \
+                and enemy.isSlashed is False \
+                and slash_code == 3:
+            player.score += 15
+            print("hit")
+            enemy.isSlashed = True
+            slash_hit = True
+        # Bottom
+        if (enemy.current_y <= 525 and enemy.current_y > 475) \
+                and enemy.quadrant == 7 \
+                and enemy.isSlashed is False \
+                and slash_code == 4:
+            player.score += 15
+            print("hit")
+            enemy.isSlashed = True
+            slash_hit = True
+
+        if slash_hit is False:
+            player.score -= 1
+
 
 

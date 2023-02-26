@@ -29,27 +29,31 @@ class player:
         :param enemy: current enemy being checked
         :param hit_marker: current hit marker to update
         """
-        if enemy.current_y > 315 \
+        if enemy.current_y > 325 \
                 and enemy.quadrant == 5 \
-                and enemy.did_damage is False:
+                and enemy.did_damage is False\
+                and enemy.isSlashed is False:
             enemy.did_damage = True
             self.health -= 1
             hit_marker.hit_marker_decrease(self)
-        if enemy.current_x > 315 \
+        if enemy.current_x > 325 \
                 and enemy.quadrant == 6 \
-                and enemy.did_damage is False:
+                and enemy.did_damage is False\
+                and enemy.isSlashed is False:
             enemy.did_damage = True
             self.health -= 1
             hit_marker.hit_marker_decrease(self)
-        if enemy.current_y < 485 \
+        if enemy.current_y < 475 \
                 and enemy.quadrant == 7 \
-                and enemy.did_damage is False:
+                and enemy.did_damage is False\
+                and enemy.isSlashed is False:
             enemy.did_damage = True
             self.health -= 1
             hit_marker.hit_marker_decrease(self)
-        if enemy.current_x < 485 \
+        if enemy.current_x < 475 \
                 and enemy.quadrant == 8 \
-                and enemy.did_damage is False:
+                and enemy.did_damage is False\
+                and enemy.isSlashed is False:
             enemy.did_damage = True
             self.health -= 1
             hit_marker.hit_marker_decrease(self)

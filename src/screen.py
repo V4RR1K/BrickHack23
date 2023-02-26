@@ -92,13 +92,24 @@ def run(screen):
             # Slash Code
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
-                    slash = 1
+                    slash = 1 # Right
+                    for enemy in all_enemies:
+                        ring.slash(enemy, player, slash)
+
                 if event.key == pygame.K_LEFT:
-                    slash = 2
+                    slash = 2 # Left
+                    for enemy in all_enemies:
+                        ring.slash(enemy, player, slash)
+
                 if event.key == pygame.K_UP:
-                    slash = 3
+                    slash = 3 # Up
+                    for enemy in all_enemies:
+                        ring.slash(enemy, player, slash)
+
                 if event.key == pygame.K_DOWN:
-                    slash = 4
+                    slash = 4 # Down
+                    for enemy in all_enemies:
+                        ring.slash(enemy, player, slash)
 
         player.player_place(screen)
 
@@ -116,4 +127,5 @@ def run(screen):
         dt = game_clock.tick(fps) / 1000    # Update delta time
         pygame.display.update()
 
+    print("Player Score: " + str(player.score))
     return 0
