@@ -3,7 +3,6 @@ screen.py contains code pertaining to screen specific information
 @date: 02-25-23
 @author: Greg Lynskey
 """
-import numpy
 import pygame
 import player as p
 import enemy as e
@@ -32,33 +31,10 @@ def init(width, height):
 
     pygame.display.set_icon(ASSET_DICTIONARY['Logo'])
 
-    pygame.mixer.init()
-    pygame.mixer.music.load('assets/music/song1.mp3')
-    pygame.mixer.music.play()
-
     return screen
 
-# def load_enemies(time, left, l_c, right, r_c, top, t_c, bottom, b_c, in_play):
-#     if time == 1:
-#         in_play.append(left[l_c])
-#         l_c += 1
-#         in_play.append(right[r_c])
-#         r_c += 1
-#         in_play.append(top[t_c])
-#         t_c += 1
-#         in_play.append(bottom[b_c])
-#         b_c += 1
-#     if time == 2:
-#         in_play.append(left[l_c])
-#         l_c += 1
-#         in_play.append(right[r_c])
-#         r_c += 1
-#         in_play.append(top[t_c])
-#         t_c += 1
-#         in_play.append(bottom[b_c])
-#         b_c += 1
 
-def run(screen):
+def run(screen, level):
     """
     Runs the Game instance
     :param screen: screen to put game on
@@ -66,6 +42,11 @@ def run(screen):
     """
 
     running = True
+
+    pygame.mixer.init()
+    pygame.mixer.music.load('assets/music/song1.mp3')
+    pygame.mixer.music.play()
+
     screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
     # FPS Settings
@@ -117,32 +98,22 @@ def run(screen):
     timed_enemies = list()
 
     print(all_enemies)
-    significant_times = [7.5, 7.75, 8.0, 8.25, 9, 9.25, 9.75, 10.25, 11, 11.25, 11.75, 12, 12.25,
-                         12.25, 12, 13.25, 13.75, 14.25, 15, 15.25, 15.75, 16, 16.25, 17, 17.5,
-                         17.75, 18.25, 19, 19.25, 19.75, 20, 20.25, 21, 21.25, 22.25, 23, 23.25,
-                         23.75, 24, 24.25, 25, 25.25, 25.75, 26.25, 27, 27.25, 27.75, 28, 28.25, 29,
-                         29.25, 29.75, 30.25, 31.25, 31.75, 32, 32.25, 35, 38.25, 38.75, 39.25, 40,
-                         40.25, 40.75, 42, 42.25, 43, 43.25, 43.75, 44.25, 44.25, 46.75,
-                         49.25, 49.75, 50.25, 51.25, 51.75, 52, 52.25, 55, 58.25, 58.75, 59.25, 60,
-                         60.25, 60.75, 62, 62.25, 63, 63.25, 63.75, 64.25, 64.25, 66.75,
-                         69.25, 69.75, 70.25, 71.25, 71.75, 72, 72.25, 75
-                         ]
+    significant_times = list()
+    if level == 1:
+        significant_times = [7.5, 7.75, 8.0, 8.25, 9, 9.25, 9.75, 10.25, 11, 11.25, 11.75, 12, 12.25,
+                             12.25, 12, 13.25, 13.75, 14.25, 15, 15.25, 15.75, 16, 16.25, 17, 17.5,
+                             17.75, 18.25, 19, 19.25, 19.75, 20, 20.25, 21, 21.25, 22.25, 23, 23.25,
+                             23.75, 24, 24.25, 25, 25.25, 25.75, 26.25, 27, 27.25, 27.75, 28, 28.25, 29,
+                             29.25, 29.75, 30.25, 31.25, 31.75, 32, 32.25, 35, 38.25, 38.75, 39.25, 40,
+                             40.25, 40.75, 42, 42.25, 43, 43.25, 43.75, 44.25, 44.25, 46.75,
+                             49.25, 49.75, 50.25, 51.25, 51.75, 52, 52.25, 55, 58.25, 58.75, 59.25, 60,
+                             60.25, 60.75, 62, 62.25, 63, 63.25, 63.75, 64.25, 64.25, 66.75,
+                             69.25, 69.75, 70.25, 71.25, 71.75, 72, 72.25, 75
+                             ]
     index = 0
     for sig_time in significant_times:
         timed_enemies.append(all_enemies[index].update_spawn(sig_time))
         index += 1
-    # top_arr[0].update_spawn(1)
-    # bot_arr[0].update_spawn(7.5)
-    # right_arr[0].update_spawn(7.75)
-    # left_arr[0].update_spawn(8.0)
-    # top_arr[1].update_spawn(8.25)
-    # bot_arr[1].update_spawn(4)
-    # right_arr[1].update_spawn(10)
-    # left_arr[1].update_spawn(13)
-    # top_arr[2].update_spawn(20)
-    # bot_arr[2].update_spawn(18)
-    # right_arr[2].update_spawn(19)
-    # left_arr[2].update_spawn(17)
 
     before_play = all_enemies
     in_play = list()
