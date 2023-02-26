@@ -1,3 +1,33 @@
+commit 606aab702c5d7b74a246f37ea227f5836d29b17f
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 10:39:17 2023 -0500
+
+    Greg: Added image to readme
+
+commit eb11983c7af8950c5cf2443db1a1d33cc3fb1dc2
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 10:31:20 2023 -0500
+
+    Greg: Added credits to the ReadMe
+
+commit 89b3ef3578912dd2e284c40f5eebba71dd3af0cf
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 10:25:01 2023 -0500
+
+    Greg: Updated the readme
+
+commit 39af9d1b4efb34df8d3b9cea300ed2ba3b3297c0
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 10:17:52 2023 -0500
+
+    Greg: Added a win screen
+
+commit 890b5e41ec874c349aacd081e0551dc2cddf04d9
+Author: Greg Lynskey <gclynskey@outlook.com>
+Date:   Sun Feb 26 09:51:46 2023 -0500
+
+    Greg: Updated git log
+
 commit c4103fc24793f512a760656eb90abf9a3e4f0f21
 Author: Greg Lynskey <gclynskey@outlook.com>
 Date:   Sun Feb 26 09:46:36 2023 -0500
