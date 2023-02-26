@@ -44,8 +44,9 @@ def run(screen, level):
     running = True
 
     pygame.mixer.init()
-    pygame.mixer.music.load('assets/music/song1.mp3')
-    pygame.mixer.music.play()
+    if level == 1:
+        pygame.mixer.music.load('assets/music/song1.mp3')
+        pygame.mixer.music.play()
 
     screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
