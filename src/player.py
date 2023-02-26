@@ -7,20 +7,25 @@ import pygame
 import enemy
 import hit_marker
 import assets_generator as a
+dictionary = a.generate_assets_dir("z_const")
 class player:
     """
     Player class models the player attributes
     """
     def __init__(self):
-        dictionary = a.generate_assets_dir("z_const")
-        self.icon = dictionary["Player"]
+        self.icon = dictionary['DaBaby1']
         self.current_x = 400 - 32
         self.current_y = 400 - 32
         self.hitbox_rad = 32
         self.score = 0
         self.health = 5
+        self.flip = 0
 
-    def player_place(self, screen):
+    def player_place(self, screen, time):
+        if time % 2 == 0:
+            self.icon = dictionary['DaBaby1']
+        if time % 2 == 1:
+            self.icon = dictionary['DaBaby2']
         screen.blit(self.icon, (self.current_x, self.current_y))
 
     def hit_check(self, enemy, hit_marker):

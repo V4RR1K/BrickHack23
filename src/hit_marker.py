@@ -15,8 +15,8 @@ class hit_marker:
     def __init__(self):
 
         self.icon = dictionary["Hit_Marker_1"]
-        self.current_x = 750 - 32
-        self.current_y = 50 - 32
+        self.current_x = 400 - 32
+        self.current_y = 350 - 32
 
     def hit_marker_place(self, screen):
         screen.blit(self.icon, (self.current_x, self.current_y))

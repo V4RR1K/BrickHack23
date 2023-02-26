@@ -151,7 +151,7 @@ def run(screen):
             player.hit_check(enemy, hit_marker)
 
         screen.blit(ASSET_DICTIONARY["Circle"], (300,300))
-        player.player_place(screen)
+        player.player_place(screen, time)
         ring.ring_place(screen)
         hit_marker.hit_marker_place(screen)
         # End of loop
