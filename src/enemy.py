@@ -23,8 +23,10 @@ class enemy:
         self.did_damage = False
         self.isSlashed = False
         self.spawn_time = 0
+        self.estimated_delta_t = self.calculate_delta_t()
 
-
+    def calculate_delta_t(self):
+        return (300 / (self.movement_mod * .0165)) / 60
     def random_png(self):
         match (self.quadrant):
             case 5:  # Coming from top
@@ -123,7 +125,7 @@ class enemy:
                 return 6
 
     def update_spawn(self, spawn_time):
-        self.spawn_time = spawn_time
+        self.spawn_time = spawn_time - self.estimated_delta_t
 
     def update_running(self, running):
         self.running = running
