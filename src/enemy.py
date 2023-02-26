@@ -26,7 +26,7 @@ class enemy:
         self.estimated_delta_t = self.calculate_delta_t()
 
     def calculate_delta_t(self):
-        return (300 / (self.movement_mod * .0165)) / 60
+        return ((300 / (self.movement_mod * .0165)) / 60) + 0.0758
     def random_png(self):
         match (self.quadrant):
             case 5:  # Coming from top
