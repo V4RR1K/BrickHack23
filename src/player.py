@@ -20,12 +20,22 @@ class player:
         self.score = 0
         self.health = 5
         self.flip = 0
+        self.icon_num = 1
+
 
     def player_place(self, screen, time):
-        if time % 2 == 0:
-            self.icon = dictionary['DaBaby1']
-        if time % 2 == 1:
-            self.icon = dictionary['DaBaby2']
+        self.flip += 1
+        if self.flip == 60:
+            match(self.icon_num):
+                case 1:
+                    self.icon = dictionary['DaBaby2']
+                    self.icon_num = 2
+                    self.flip = 0
+                case 2:
+                    self.icon = dictionary['DaBaby1']
+                    self.icon_num = 1
+                    self.flip = 0
+            self.flip += 1
         screen.blit(self.icon, (self.current_x, self.current_y))
 
     def hit_check(self, enemy, hit_marker):

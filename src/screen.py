@@ -11,6 +11,7 @@ import hit_marker as h
 import score as s
 import assets_generator as ag
 import random
+import time
 
 random.seed(176)
 ASSET_DICTIONARY = ag.generate_all_static_assets()
@@ -34,6 +35,26 @@ def init(width, height):
     pygame.mixer.music.play()
 
     return screen
+
+# def load_enemies(time, left, l_c, right, r_c, top, t_c, bottom, b_c, in_play):
+#     if time == 1:
+#         in_play.append(left[l_c])
+#         l_c += 1
+#         in_play.append(right[r_c])
+#         r_c += 1
+#         in_play.append(top[t_c])
+#         t_c += 1
+#         in_play.append(bottom[b_c])
+#         b_c += 1
+#     if time == 2:
+#         in_play.append(left[l_c])
+#         l_c += 1
+#         in_play.append(right[r_c])
+#         r_c += 1
+#         in_play.append(top[t_c])
+#         t_c += 1
+#         in_play.append(bottom[b_c])
+#         b_c += 1
 
 def run(screen):
     """
@@ -65,33 +86,24 @@ def run(screen):
 
     # Enemy Init (x, y, movement_mod)
 
-    # Top
     top_arr = list()
+    left_arr = list()
+    right_arr = list()
+    bot_arr = list()
     for i in range(0, 40):
         speed_mod = random.randint(100, 150)
-        e_t = e.enemy(400, 0 ,speed_mod)
+        e_t = e.enemy(400, 0, speed_mod)
         top_arr.append(e_t)
-
-    # Left
-    left_arr = list()
-    for i in range(0, 40):
+        speed_mod = random.randint(100, 150)
+        e_b = e.enemy(400, 800, speed_mod)
+        bot_arr.append(e_b)
+        speed_mod = random.randint(100, 150)
+        e_r = e.enemy(800, 400, speed_mod)
+        right_arr.append(e_r)
         speed_mod = random.randint(100, 150)
         e_l = e.enemy(0, 400, speed_mod)
         left_arr.append(e_l)
 
-    # Bottom
-    bot_arr = list()
-    for i in range(0, 40):
-        speed_mod = random.randint(100, 150)
-        e_b = e.enemy(400, 800, speed_mod)
-        bot_arr.append(e_b)
-
-    # Right
-    right_arr = list()
-    for i in range(0, 40):
-        speed_mod = random.randint(100, 150)
-        e_r = e.enemy(800, 400, speed_mod)
-        right_arr.append(e_r)
 
     all_enemies = list()
     all_enemies.extend(top_arr)
@@ -100,21 +112,29 @@ def run(screen):
     all_enemies.extend(left_arr)
     print(all_enemies)
 
-    # Time in seconds
-    time = 0
-    frame_count = 0
+    top_arr[0].update_spawn(0)
+    bot_arr[0].update_spawn(5)
+    right_arr[0].update_spawn(10)
+    left_arr[0].update_spawn(15)
 
+    before_play = all_enemies
+    in_play = list()
+
+    # Time in seconds
+    timer_start = time.perf_counter()
     # Main Game Loop
     while running:
-        # Timing assist
-        frame_count += 1
-        if frame_count == 15 and frame_count == 45:
-            time += 0.25
-        if frame_count == 30:
-            time += 0.5
-        if frame_count == 60:
-            time += 1
-            frame_count = 0
+        curr_time = time.perf_counter() - timer_start
+        print(curr_time)
+
+        for enemy in before_play:
+            if enemy.spawn_time >= curr_time:
+                enemy.running = True
+                in_play.append(enemy)
+                before_play.remove(enemy)
+
+        # Add enemies to screen
+        # load_enemies(time, left_arr, l_c, right_arr, r_c, top_arr, t_c, bot_arr, b_c, in_play)
 
         screen.blit(ASSET_DICTIONARY['HellBgUp'], (0,0))
 
@@ -128,29 +148,29 @@ def run(screen):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     slash = 1 # Right
-                    for enemy in all_enemies:
+                    for enemy in in_play:
                         ring.slash(enemy, player, slash)
 
                 if event.key == pygame.K_LEFT:
                     slash = 2 # Left
-                    for enemy in all_enemies:
+                    for enemy in in_play:
                         ring.slash(enemy, player, slash)
 
                 if event.key == pygame.K_UP:
                     slash = 3 # Up
-                    for enemy in all_enemies:
+                    for enemy in in_play:
                         ring.slash(enemy, player, slash)
 
                 if event.key == pygame.K_DOWN:
                     slash = 4 # Down
-                    for enemy in all_enemies:
+                    for enemy in in_play:
                         ring.slash(enemy, player, slash)
 
         scoreboard.score_update(player.score)
         scoreboard.score_place(screen)
 
         # Enemy Placement and hit checking
-        for enemy in all_enemies:
+        for enemy in in_play:
             enemy.enemy_place(screen, dt)
             player.hit_check(enemy, hit_marker)
 

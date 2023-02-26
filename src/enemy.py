@@ -19,9 +19,10 @@ class enemy:
         self.movement_mod = movement_mod
         self.quadrant = self.detect_quadrant()
         self.icon = self.random_png()
-        self.running = True
+        self.running = False
         self.did_damage = False
         self.isSlashed = False
+        self.spawn_time = 0
 
 
     def random_png(self):
@@ -121,17 +122,6 @@ class enemy:
             if self.current_x < 400:
                 return 6
 
-        # Approaching on Diagonal
-        # # Quadrant 1
-        # if self.current_x > 400 and self.current_y > 400:
-        #     return 1
-        # # Quadrant 2
-        # if self.current_x < 400 and self.current_y > 400:
-        #     return 2
-        # # Quadrant 3
-        # if self.current_x < 400 and self.current_y < 400:
-        #     return 3
-        # # Quadrant 4
-        # if self.current_x > 400 and self.current_y < 400:
-        #     return 4
+    def update_spawn(self, spawn_time):
+        self.spawn_time = spawn_time
 
