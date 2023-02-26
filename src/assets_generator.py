@@ -6,19 +6,6 @@ assets_generator.py loads assets into python code
 import pygame
 import os
 
-def generate_assets_manual():
-    """
-    Generates all the assets into pygame images
-    :return: asset dictionary
-    """
-    player_icon = pygame.image.load('assets/static/Player.png')
-    enemy1_icon = pygame.image.load('assets/static/Enemy1.png')
-    nunes = pygame.image.load('assets/static/Nunes.png')
-
-    return {"player_icon": player_icon,
-            "enemy1_icon": enemy1_icon,
-            "nunes": nunes}
-
 def generate_all_static_assets():
     blue = generate_assets_dir("blue")
     green = generate_assets_dir("green")
@@ -36,7 +23,6 @@ def generate_all_static_assets():
     all |= hit
     print(all)
     return all
-
 def generate_all_enemy_assets():
     blue = generate_assets_dir("blue")
     green = generate_assets_dir("green")
@@ -59,7 +45,6 @@ def generate_static_assets():
         asset_dictionary[file[:len(file)-4]] = pygame.image.load(asset_path)
     print(asset_dictionary)
     return asset_dictionary
-
 def generate_assets_dir(dir):
     match(dir):
         case "red":

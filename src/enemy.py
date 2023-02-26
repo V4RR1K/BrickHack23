@@ -52,26 +52,26 @@ class enemy:
 
 
     def enemy_print_helper(self, screen):
+        offset = 32
         match(self.quadrant):
             case 5:     # Coming from top
-                if (self.current_y < 350):
-                    screen.blit(self.icon, (self.current_x, self.current_y))
+                if (self.current_y < 300):
+                    screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
             case 6:     # Coming from left
-                if (self.current_x < 350):
-                    screen.blit(self.icon, (self.current_x, self.current_y))
+                if (self.current_x < 300):
+                    screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
-
             case 7:  # Coming from top
-                if (self.current_y > 450):
-                    screen.blit(self.icon, (self.current_x, self.current_y))
+                if (self.current_y > 500):
+                    screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
             case 8:  # Coming from right
-                if (self.current_x > 450):
-                    screen.blit(self.icon, (self.current_x, self.current_y))
+                if (self.current_x > 500):
+                    screen.blit(self.icon, (self.current_x - offset, self.current_y - offset))
                 else:
                     self.running = False
     def move_to_center(self, dt):

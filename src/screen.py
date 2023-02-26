@@ -6,6 +6,8 @@ screen.py contains code pertaining to screen specific information
 import pygame
 import player as p
 import enemy as e
+import ring as r
+import hit_marker as h
 import assets_generator as ag
 
 ASSET_DICTIONARY = ag.generate_all_static_assets()
@@ -42,10 +44,14 @@ def run(screen):
     game_clock = pygame.time.Clock()
     game_clock.tick(fps)
 
-
     # Player Init
-    player = p.player(ASSET_DICTIONARY["Player"],
-                      400, 400, 40, 0, 20)
+    player = p.player()
+
+    # Ring Init
+    ring = r.ring()
+
+    # Hit Marker Init
+    hit_marker = h.hit_marker()
 
     # Enemy Init (png, x, y, movement_mod)
 
@@ -71,13 +77,20 @@ def run(screen):
 
         player.player_place(screen)
 
+
         # Enemy Placement
         e_1.enemy_place(screen, dt)
+        player.hit_check(e_1, hit_marker)
         e_2.enemy_place(screen, dt)
+        player.hit_check(e_2, hit_marker)
         e_3.enemy_place(screen, dt)
+        player.hit_check(e_3, hit_marker)
         e_4.enemy_place(screen, dt)
+        player.hit_check(e_4, hit_marker)
 
 
+        ring.ring_place(screen)
+        hit_marker.hit_marker_place(screen)
         # End of loop
         dt = game_clock.tick(fps) / 1000    # Update delta time
         pygame.display.update()
